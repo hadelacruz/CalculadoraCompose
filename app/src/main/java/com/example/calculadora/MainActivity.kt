@@ -59,7 +59,10 @@ fun Calculator(
     var subtitle by remember { mutableStateOf("0") }
 
     Column (modifier = Modifier
-        .fillMaxSize()) {
+        .fillMaxSize()
+        .padding(16.dp), // Padding adicional para dar espacio alrededor
+        verticalArrangement = Arrangement.Center, // Centra los elementos verticalmente
+        horizontalAlignment = Alignment.CenterHorizontally ) {
         DisplayCalc(title, subtitle)
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -70,6 +73,7 @@ fun Calculator(
             , modifier = modifier
                 .fillMaxWidth()
                 .padding(vertical = 6.dp)
+
         ) {
             CalculatorButton(onClickedValue = { title = title + "(" }, text = "(")
             CalculatorButton(onClickedValue = { title = title + ")" }, text = ")")
@@ -149,7 +153,7 @@ fun CalculatorButton(
             containerColor = containerColor,
 
         )
-        , modifier = modifier.padding(end = 10.dp, start = 10.dp).size(60.dp)
+        , modifier = modifier.padding(end = 10.dp, start = 10.dp).size(70.dp)
 
     ) {
         Text(text = text)
@@ -162,7 +166,7 @@ fun DisplayCalc(title: String, subtitle: String) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(30.dp)
+            .padding(5.dp)
             .padding(vertical = 15.dp).padding(top= 30.dp)
 
     ) {
